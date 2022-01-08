@@ -1,9 +1,6 @@
-require 'net/http'
-require 'json'
-
-
 def weather_detect(city)
-
+    require 'net/http'
+    require 'json'
     params = {
         :access_key => "1eca0554caf0f8a79c542f3d706481fc",  #API Key
         :query => city 
@@ -14,7 +11,6 @@ def weather_detect(city)
     json = Net::HTTP.get(uri)
     api_response = JSON.parse(json)
     puts "The current temperature in #{api_response['location']['name']}(#{api_response['location']['country']}) is #{api_response['current']['temperature']}°C"
-
 end
 
 #Taking the input from the user
